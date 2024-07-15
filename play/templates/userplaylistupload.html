@@ -1,0 +1,137 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Playlist Upload</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('background-video.mp4');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .container {
+            background-color: rgba(17, 17, 17, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 0px 20px 5px #FF0000;
+            text-align: center;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #FF0000;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+        input[type="file"] {
+            border: 2px solid #FF0000;
+            border-radius: 10px;
+            padding: 15px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #FFFFFF;
+            cursor: pointer;
+            background-color: #111111;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        input[type="file"]:hover,
+        input[type="file"]:focus {
+            border-color: #FF3333;
+            cursor: pointer;
+        }
+        input[type="submit"] {
+            background-color: #FF0000;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #FF3333;
+        }
+
+        /* Add button styles */
+        .add-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: #F23030;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-button:hover {
+            background-color: #FF5252; /* Lighter shade of red on hover */
+        }
+        .add-button:focus {
+            outline: none; /* Remove outline on focus */
+        }
+        .add-button i {
+            margin-right: 5px;
+        }
+        .background-clip{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index:-1;
+            transition: 1s;
+        }
+        @media (min-aspect-ratio: 16/9){
+            .background-clip{
+                width: 100%;
+                height: auto;
+                }
+            }
+        @media(max-aspect-ratio: 16/9){
+            .background-clip{
+                width: auto;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="userplaylistshow" class="add-button">
+        <i class="fas fa-arrow-left"></i> My Songs
+    </a>
+
+    <div class="container">
+        <video autoplay loop muted plays-inline class="background-clip"> 
+            <source src="{% static '/video/2.mp4' %}" type="video/mp4">
+        </video>
+        <h1>Upload Your Song</h1>
+        <form action="userplaylistupd" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="audio_file" accept="audio/*">
+            <br>
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+</body>
+</html>

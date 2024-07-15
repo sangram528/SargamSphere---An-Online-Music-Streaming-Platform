@@ -1,0 +1,36 @@
+.navbar {
+    border: 0;
+    border-radius:0;
+    box-shadow: none;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    display: flex;
+    justify-content: space-between; /* Align items horizontally with space between them */
+    align-items: center; /* Center items vertically */
+    padding: 10px 20px; /* Add padding to the navbar */
+}
+
+.navbar-brand>img {
+    padding-left: 80px;
+    width: 100%;
+    max-width: 130px;
+}
+
+.nav-link {
+    color: rgb(187, 175, 175); /* Setting color to grey */
+    font-weight: bold; /* Making text bold */
+    text-decoration: none; /* Removing underline */
+    margin-left: 20px; /* Adding a gap between the links */
+}
+
+.nav-link:hover {
+    color: rgb(212, 221, 43); /* Change color to red on hover */
+}
+
+.nav-link:active{
+    color: red; /* Change color to red when clicked */
+}

@@ -1,0 +1,25 @@
+
+<html>
+<head>
+    <title>Song List</title>
+</head>
+<body>
+    <h1>Song List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Play</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for song in songs %}
+            <tr>
+                <td>{{ song }}</td>
+                <td><a href="/static/songs/{{ song }}" target="_blank">Play</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

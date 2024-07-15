@@ -1,0 +1,201 @@
+<!-- full_change_PM -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Edit Admin Info</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+</head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to left, #1f0505, #710d0d); 
+    }
+
+.wrapper{
+    position:relative;
+    width: 750px;
+    height: 450px;
+    background: linear-gradient(to left, #ff0000,#9c0000,#1f0505);
+    border: 2px solid #ffbda5;
+    box-shadow: 0 0 50px #fed5d5;
+    overflow: hidden;
+}
+
+.wrapper .form-box {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.wrapper .form-box.login{
+    left: 0;
+    padding: 0 60px 0 40px;
+}
+
+.form-box h2 {
+    font-size: 32px;
+    color: #ffb7b7;
+    text-align: center;
+}
+
+.form-box .form-group{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 50px 0;
+}
+
+.form-group input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ffb7b7;
+    padding-right: 23px;
+    font-size: 16px;
+    color:#ffb7b7;
+    font-weight: 500;
+}
+
+.form-group label {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #ffb7b7;
+    pointer-events: none;
+}
+
+.form-group i{
+    position: absolute;
+    top: 25%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color:#ffb7b7;
+}
+
+.submit-btn{
+    position: relative;
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: 2px solid #ffb7b7;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.submit-btn::before {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 300%;
+    background: linear-gradient(#290808, #c21414, #ff9696,#6f0a0a);
+    z-index: -1;
+    transition: .5s;
+}
+
+.submit-btn:hover::before{
+    top: 0;
+}
+
+.wrapper .info-text{
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.wrapper .info-text.edit{
+    right:0;
+    text-align: right;
+    padding: 0 40px 30px 60px;
+}
+.logo{
+    position:static;
+    padding-left: 100px;
+    padding-right: 20px;
+    padding-bottom: 35px;
+    width: 100%;
+}
+.info-text h2 {
+    font-size: 30px;
+    color: #341313;
+    padding-bottom: 85px;
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+.wrapper .bg-animate {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    width: 850px;
+    height: 600px;
+    background: linear-gradient(45deg, #ffcece, #d44545);
+    border-bottom: 3px solid #ffbda5;
+    transform: rotate(10deg) skewY(40deg);
+    transform-origin: bottom right;
+}
+</style>
+<body>
+    <div class="wrapper">
+        <span class="bg-animate"></span>
+        <div class="form-box login">
+            <h2>Edit Admin Profile</h2>
+            <form action="../edcode2/{{a.id}}" method="GET">
+                <div class="form-group">
+                    <label for="name">Edit Admin Name:</label><br>
+                    <input type="text" id="name" name="a1" value="{{a.name}}">
+                    <i class='bx bx-edit' ></i>
+                </div>
+                <div class="form-group">
+                    <label for="password">Edit Admin Password:</label><br>
+                    <input type="password" id="password" name="a2" value="{{a.pwd}}">
+                    <i class='bx bx-lock-alt' ></i>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+        </div>
+        <div class="info-text edit">
+            <!-- Add your logo here -->
+            <img src="{% static '/img/logo/logo.png' %}" class="logo">
+            <h2>Change Admin Info here!</h2>
+        </div>
+    </div>
+</body>
+</html>

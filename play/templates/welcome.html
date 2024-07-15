@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <title>Welcome to Sargamsphere</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins';
+        }
+
+        .logo {
+            position: fixed;
+            top: 20px; /* Adjust as needed */
+            left: 20px; /* Adjust as needed */
+            z-index: 1000;
+            max-width: 150px; /* Adjust the maximum width of the logo */
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sargam {
+            color: #f62020;
+            font-family: cursive;
+        }
+        .sphere {
+            color: #f4d868;
+            font-family: cursive;
+        }
+        .content {
+            text-align: center;
+        }
+        .content h1 {
+            font-size: 95px;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+        .content h2 {
+            font-size: 35px;
+            color: #fff;
+            margin-bottom: 50px;
+        }
+        .content a {
+            font-size: 33px;
+            color: #fff;
+            text-decoration: none;
+            border: 2px solid #fff;
+            padding: 25px 35px;
+            border-radius: 50px;
+        }
+        .content a:hover{
+            background-color: #f62020;
+            color: #000;
+            border-color: #f62020;
+            transition: 1s;
+        }
+        .background-clip{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            z-index:-1;
+            transition: 1s;
+        }
+        @media (min-aspect-ratio: 16/9){
+            .background-clip{
+                width: 100%;
+                height: auto;
+                }
+            }
+        @media(max-aspect-ratio: 16/9){
+            .background-clip{
+                width: auto;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="logo"><img src="{% static 'logo.png' %}" alt="Logo" class="logo"></div>
+<div class="container">
+    <video autoplay loop muted plays-inline class="background-clip"> 
+        <source src="{% static '/video/1.mp4' %}" type="video/mp4">
+    </video>
+    <div class="content">
+        <h1>Welcome to <span class="sargam">Sargam</span><span class="sphere">Sphere</span></h1>
+        <h2>Let the beats be your guide, as you dance through the digital symphony of our site</h2>
+        <a href="login" class="login-button">Login</a>
+    </div>
+</div>
+</body>
+</html>

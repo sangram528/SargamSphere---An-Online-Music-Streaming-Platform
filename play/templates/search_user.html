@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/style2.css' %}">  
+</head>
+<style>
+     /* Add button styles */
+     .add-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #F23030;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .add-button:hover {
+            background-color: #FF5252; /* Lighter shade of red on hover */
+        }
+        .add-button:focus {
+            outline: none; /* Remove outline on focus */
+        }
+        .add-button i {
+            margin-right: 5px;
+        }
+</style>
+<body id="bg" style="background-image: url('{% static "img/background/bg7-transformed.png" %}');">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#home">
+            <img class="img-responsive" src='{% static "img/logo/logo.png " %}' alt="" />
+        </a>
+
+        <a href="show" class="add-button">
+            <i class="fas fa-arrow-left"></i> Back
+        </a>
+
+    </nav>
+    <!-- End of Navigation Bar -->
+
+    <div class="container">
+        <!-- User Information Section -->
+        <h2 class="heading-white">Users</h2>
+        <div class="user-list">
+            <!-- User cards -->
+            <!-- Loop through users and display user cards -->
+            {% if users %}
+                {% for user in users %}
+                
+                <div class="user-card">
+                    <div class="profile-picture">
+                        {{ user.name|slice:":1" }}
+                    </div>
+                    <div class="user-details">
+                        <h3>{{user.name}}</h3>
+                        <p>Password: ********</p>
+                        <p>
+                            <a href="edit/{{user.id}}">
+                                <button class="btn btn-edit">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </a>
+                            <a href="del/{{user.id}}">
+                                <button class="btn btn-delete">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+
+            {% else %}
+                <h2 class="heading-white">N0 USERS FOUND!!!</h2>
+            {% endif %}
+            <!-- End of user cards -->
+        </div>
+    </div>
+    <!-- End of User Information Section -->
+</body>
+</html>

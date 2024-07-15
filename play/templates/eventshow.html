@@ -1,0 +1,218 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styleevent.css' %}">
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"> 
+    <title>Events Ticket Card</title>
+    <style>
+        /* Additional CSS for the swiper container */
+        .swiper-container {
+            position: relative; /* Ensure the navigation arrows position correctly */
+            width: 100%;
+            padding-top: 50px; /* Adjust as needed based on your design */
+            padding-bottom: 50px; /* Adjust as needed based on your design */
+        }
+        .swiper-slide {
+            background-size: cover;
+            background-position: center;
+            width: calc(100% / 3 - 40px); /* Adjust the width of each slide */
+            height: 500px; /* Adjust the height of each slide as needed */
+            margin-right: 20px; /* Adjust the margin between slides */
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: gold; /* Set background color to gold */
+            border-radius: 50%; /* Make it a circle */
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-button-prev:after {
+            content: '\f104'; /* Unicode for right arrow ('\f054' for Font Awesome 5) */
+            font-family: 'Font Awesome 5 Free'; /* Font Awesome for arrow */
+            font-weight: 900;
+            color: black;
+            font-size: 20px;
+        }
+
+        .swiper-button-next:after{
+            content: '\f054'; /* Unicode for right arrow ('\f054' for Font Awesome 5) */
+            font-family: 'Font Awesome 5 Free'; /* Font Awesome for arrow */
+            font-weight: 900;
+            color: black;
+            font-size: 16px;
+        }
+
+        .swiper-button-prev {
+            left: 10px;
+        }
+
+        .swiper-button-next {
+            right: 10px;
+        }
+
+        .swiper-button-disabled {
+            visibility: hidden; /* Hide the disabled button */
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            opacity: 0.5;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        /* Define the scrollbar */
+::-webkit-scrollbar {
+	width: 8px; /* Width of the scrollbar */
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+	background: #1f1f1f; /* Darker color of the track */
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+	background-color: #990000; /* Dark red color of the scrollbar handle */ 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+	background-color: #770000; /* Darker red color on hover */
+  }
+
+    </style>
+</head>
+<body id="bg" style="background-image: url('{% static "img/background/bgevent2.jpg" %}');">
+    <!-- Swiper container -->
+    <div class="swiper-container">
+        <div class="swiper-button-prev swiper-button-disabled"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-wrapper">
+            <!-- Your event cards (items) go here -->
+            {% for i in u %}
+            <div class="swiper-slide">
+                <div class="item-container">
+                    <div class="img-container">
+                        <img src="{% static i.eurl %}" alt="{{ i.etitle }}">
+                    </div>
+                    <div class="body-container">
+                        <div class="overlay"></div>
+                        <div class="event-info">
+                            <p class="title">{{ i.etitle }}</p>
+                            <div class="separator"></div>
+                            <p class="info">{{ i.eplace }}</p>
+                            <p class="price">&#8377;{{ i.eprice }}</p>
+                            <div class="additional-info">
+                                <p class="info">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    {{ i.elocation }}
+                                </p>
+                                <p class="info">
+                                    <i class="far fa-calendar-alt"></i>
+                                    {{ i.etiming }}
+                                </p>
+                            </div>
+                        </div>
+                        <a class="action" href="{{ i.elink }}" target="_blank">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- End of event cards -->
+        </div>
+        <!-- Add pagination if needed -->
+        <div class="swiper-pagination"></div>
+    </div>
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper
+        var swiper = new Swiper(".swiper-container", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // Adjust slide width for different screen sizes if needed
+        768: {
+            slidesPerView: 1,
+            spaceBetween: 0
+        }
+    },
+    on: {
+        slideChange: function () {
+            // Check if it's the first slide and disable the prev button
+            if (this.isBeginning) {
+                document.querySelector('.swiper-button-prev').classList.add('swiper-button-disabled');
+            } else {
+                document.querySelector('.swiper-button-prev').classList.remove('swiper-button-disabled');
+            }
+
+            // Check if it's the last slide and disable the next button
+            if (this.isEnd) {
+                document.querySelector('.swiper-button-next').classList.add('swiper-button-disabled');
+            } else {
+                document.querySelector('.swiper-button-next').classList.remove('swiper-button-disabled');
+            }
+
+            // Manually update pagination bullet if looping from last to first slide
+            if (this.isEnd && this.isBeginning) {
+                var bullets = document.querySelectorAll('.swiper-pagination-bullet');
+                bullets.forEach(function(bullet) {
+                    bullet.classList.remove('swiper-pagination-bullet-active');
+                });
+                bullets[0].classList.add('swiper-pagination-bullet-active');
+            }
+        },
+    }
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}   
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+<title>Admin Verification</title>
+<style>
+    body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-align: center;
+        margin-top: 100px;
+        background-size: cover;
+        animation: changeBackground 12s infinite; /* Increased duration to 12s */
+        position: relative; /* Added position relative to establish a stacking context */
+    }
+
+    @keyframes changeBackground {
+        0%, 100% {
+            background-image: url('{% static 'rc49.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        33% {
+            background-image: url('{% static 'rc45.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        66% {
+            background-image: url('{% static 'bg28.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .container {
+        border: 2px solid #e61f1feb;
+        border-radius: 10px;
+        padding: 20px;
+        width: 70%;
+        margin: 0 auto;
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .logo {
+        position: absolute;
+        top: -60px;
+        left: 10px;
+        max-width: 150px; /* Adjust the max-width as needed */
+        max-height: 150px; /* Adjust the max-height as needed */
+    }
+
+    .message,
+    .small-text {
+        opacity: 0;
+        animation: slide-in 2s ease-in-out forwards;
+    }
+
+    .message {
+        font-size: 45px;
+        margin-bottom: 20px;
+        color: aliceblue;
+    }
+
+    .small-text {
+        font-size: 34px;
+        color: aliceblue;
+    }
+
+    a {
+        color: rgba(73, 10, 73, 0.756);
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #1a5276;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+    <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
+    <div class="container">
+        <div class="message">Wait for your admin verification</div>
+        <div class="small-text">Try to login after 48 hours to ensure your admin access</div>
+        <div class="small-text">In the meantime, explore <a href="index">our website</a></div>
+    </div>
+</body>
+</html>

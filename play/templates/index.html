@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={% static "css/style.css" %}></link>
+	<link rel="stylesheet" href={% static "css/utility.css" %}></link>
+	<title> SargamSphere</title>
+	<link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+</head>
+<style>
+	/* Add button styles */
+	.add-button {
+		top: 10px;
+		right: 20px;
+		background-color: transparent; 
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		display: inline-block;
+		width: 315px;
+	}
+	
+	.add-button:hover {
+		background-color: #F23030; 
+	}
+	
+	.add-button:focus {
+		outline: none;
+	}
+	
+	.add-button i {
+		margin-right: 5px;
+	}
+	.aboutus-button {
+		top: 10px;
+		right: 20px;
+		background-color: transparent; 
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		text-decoration: none;
+		cursor: pointer;
+		transition: background-color 0.3s ease;
+		display: inline-block;
+		width: 315px;
+	}
+	
+	.aboutus-button:hover {
+		background-color: #F23030; 
+	}
+	
+	.aboutus-button:focus {
+		outline: none;
+	}
+	
+	.aboutus-button i {
+		margin-right: 5px;
+	}
+	
+</style>
+<body>
+	<div class="container flex bg-black">
+		<div class="left">
+			<div class="home bg-grey rounded m-1 p-1">
+				<div class="logo"><img src="{% static "img/logo/logo.png" %}"></div>
+				<br>
+				<ul>
+					<a href="eventshow" class="add-button">
+						<i class='bx bxs-star' ></i> Events
+					</a>
+					<a href="aboutus" class="aboutus-button">
+						<i class='bx bx-info-circle'></i> About Us 
+					</a>
+				</ul>
+			</div>
+			
+			<div class="library bg-grey rounded m-1 p-1">
+				<div class = "heading">
+					<ul>
+						<li><img class="invert" src="{% static "library.svg" %}" alt="library">
+							<h2> Top Picks of the Day </h2>
+						</li>
+					</ul>
+				</div>
+				<div class="songList">
+					<ul>
+					
+					</ul>
+				</div>
+			</div>
+
+		</div>
+		<div class="right bg-grey rounded m-1 p-1">
+			<div class="header">
+				<div class="nav"></div>
+				<div class="buttons"></div>
+				<div class ="songPlaylist">
+					<h1> Playlists </h1>
+					<div class="cardContainer">
+						<a href="rockballad" style="text-decoration: none; color: inherit;">
+							<div class="card">
+							  <div class="play">
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+								  <circle cx="12" cy="12" r="12" fill="red" />
+								  <path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" fill="white" />
+								</svg>
+							  </div>
+							  <img src="{% static "img/david-gilmour.jpg" %}" alt="">
+							  <h2> Rock Ballads </h2>
+							  <p>Embrace the soulful journey of rock ballads' emotional landscape</p>
+							</div>
+						  </a>
+						<a href="rabindrasangeet" style="text-decoration: none; color: inherit;">
+							<div class="card ">
+								<div class="play">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+										<circle cx="12" cy="12" r="12" fill="red" />
+										<path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" fill="white" />
+									</svg>
+								</div>
+								<img src={% static "img/rabithakur.jpg" %} alt="">
+								<h2> Rabindrasangeet</h2>
+								<p>Experience the soulful meoldies and timeless classics of Rabindranath Tagore</p>
+							</div>
+						</a>
+						<a href="nazrulgeeti" style="text-decoration: none; color: inherit;">
+							<div class="card ">
+								<div class="play">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+										<circle cx="12" cy="12" r="12" fill="red" />
+										<path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" fill="white" />
+									</svg>
+								</div>
+								<img src={% static "img/Nazrul.jpeg" %} alt="">
+								<h2> Nazrulgeeti </h2>
+								<p>Dive into the poetic world of Nazrulgeeti: Bengali musical treasures</p>
+							</div>
+						</a>
+						<a href="userplaylistshow" style="text-decoration: none; color: inherit;">	
+							<div class="card ">
+								<div class="play">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="40" height="40">
+										<circle cx="12" cy="12" r="12" fill="red" />
+										<path d="M18.8906 12.846C18.5371 14.189 16.8667 15.138 13.5257 17.0361C10.296 18.8709 8.6812 19.7884 7.37983 19.4196C6.8418 19.2671 6.35159 18.9776 5.95624 18.5787C5 17.6139 5 15.7426 5 12C5 8.2574 5 6.3861 5.95624 5.42132C6.35159 5.02245 6.8418 4.73288 7.37983 4.58042C8.6812 4.21165 10.296 5.12907 13.5257 6.96393C16.8667 8.86197 18.5371 9.811 18.8906 11.154C19.0365 11.7084 19.0365 12.2916 18.8906 12.846Z" fill="white" />
+									</svg>
+								</div>
+								<img src={% static "img/your-playlist.jpeg" %} alt="">
+								<h2> Your Playlist </h2>
+								<p>Create a playlist with your favourite songs</p>
+							</div>
+						</a>
+					</div>
+					<div class="playBar">
+						<div class="seekbar">
+							<div class="circle">
+
+							</div>
+						</div>
+						<div class="aboveBar">
+							<div class="songInfo">
+							</div>
+							<div class="songButtons">
+								<img class="button" id="previous" src="{% static 'img/backward.svg' %}" alt="">
+								<img class="button" id="play"     src="{% static 'img/play-circle.svg' %}" alt="">
+								<img class="button" id="next"  src="{% static 'img/forward.svg' %}" alt="">
+							</div>
+							<div class="songTime"></div>
+						</div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src = {% static "js/script.js" %}></script>
+</body>
+</html>

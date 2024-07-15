@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <title>Oops!</title>
+    <style>
+        .left{
+            width: 25vw;
+            padding: 5px;
+        }
+        .left img {
+            height: 500px;
+            width: 600px;
+        }
+        .right{
+            width: 75vw;
+            position: absolute;
+            margin-left: 700px;
+            margin-top: 130px;
+            font-family: Arial, sans-serif; /* Change font family */
+        }
+        .right h1 {
+            color: #FF0000; /* Change color of h1 */
+            font-size: 36px; /* Change font size of h1 */
+            font-weight: bold; /* Make h1 bold */
+            margin-bottom: 20px; /* Add some margin below h1 */
+        }
+        .right p {
+            font-size: 24px; /* Change font size of paragraphs */
+            color: #333; /* Change color of paragraphs */
+            margin-bottom: 10px; /* Add some margin below paragraphs */
+        }
+        .right a {
+            font-size: 24px; /* Change font size of anchor */
+            color: #FF0000; /* Change color of anchor */
+            text-decoration: none; /* Remove underline from anchor */
+        }
+        .right a:hover {
+            text-decoration: underline; /* Add underline on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="right">
+        <h1>Oops!</h1>
+        <p>It appears that your song was not uploaded!</p>
+        <p><a href="upld">Try again?</a></p>
+    </div>
+    <div class="left">
+        <img src="{% static "img/dog.jpg" %}" alt="Image" width="300">
+    </div>
+</body>
+</html>

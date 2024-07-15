@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+<title>Registration Success</title>
+<style>
+    body {
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        animation: backgroundTransition 15s infinite; /* Adjust the duration as needed */
+    }
+
+    @keyframes backgroundTransition {
+        0% {
+            background-image: url('{% static 'rc50.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        33% {
+            background-image: url('{% static 'rc60.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        66% {
+            background-image: url('{% static 'rc70.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        100% {
+            background-image: url('{% static 'rc49.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .container {
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+        border: 2px solid#e61f1feb;
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: slide-in 2s ease-in-out forwards;
+        position: relative;
+        top: -50px;
+    }
+
+    .logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        max-width: 150px; /* Adjust the max-width as needed */
+        max-height: 150px; /* Adjust the max-height as needed */
+        z-index: 1; /* Ensure the logo is above other elements */
+    }
+
+    .message {
+        font-size: 45px;
+        margin-bottom: 20px;
+        color: whitesmoke;
+    }
+
+    .small-text {
+        font-size: 34px;
+        color:white;
+    }
+
+    a {
+        color:#e61f1feb;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #1a5276;
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+</style>
+</head>
+<body>
+    <img src="{% static 'logo.png' %}" alt="Logo" class="logo">
+    <div class="container">
+        <div class="message">You have been successfully registered</div>
+        <div class="small-text">Click <a href='login'>here</a> to go back to login</div>
+    </div>
+</body>
+</html>

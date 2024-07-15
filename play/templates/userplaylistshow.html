@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> SargamSphere</title>
+  <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+  <link rel="stylesheet" href="{% static "css/userplaylistshow.css" %}">
+</head>
+<body>
+  <header>
+    <h1 class="header-font">Your Songs</h1>
+  </header>
+  <div class="container flex bg-black" id="header-container">
+    <div class="left">
+        <div class="home bg-grey rounded m-1 p-1">
+            <div class="logo"><img src="{% static "img/logo/logo.png" %}"></div>
+            <ul>
+                <li><img class="invert" src="{% static "home.svg" %}" alt="home"><a href="index" class="home-link">Home</a></li>
+            </ul>
+        </div>
+      <div class="slideshow-container">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="{% static "img/slideshow/your playlist.jpg" %}" alt="your playlist">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="right">
+      <h2 class="header-font2"> 
+       Keep a track of all of your favourite songs
+      </h2>
+    </div>
+</div>
+
+  <div class="container">
+    <h2 class="playlist-header">Songs</h2>
+    <div class="songList">
+        <ul>
+        
+        </ul>
+        <div class="upload">
+        <ul>
+            <a href="userplaylistupload" class="playlistupload">
+            
+            <li><img class="invert" src="{% static "upload.svg" %}" alt="upload">
+               Add songs
+            </li> 
+            </a>
+        </ul>
+    </div>
+    </div>
+  </div>
+  <!-- Seekbar container -->
+  <div class="playBar">
+    <div class="seekbar">
+        <div class="circle"></div>
+    </div>
+    <div class="aboveBar">
+        <div class="songInfo"></div>
+        <div class="songButtons">
+            <img class="button" id="previous" src="{% static 'img/backward.svg' %}" alt="">
+            <img class="button" id="play" src="{% static 'img/play-circle.svg' %}" alt="">
+            <img class="button" id="forward" src="{% static 'img/forward.svg' %}" alt="">
+        </div>
+        <div class="songTime"></div>
+    </div>
+  </div>
+  <script src="{% static "js/userplaylistshow.js" %}"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="{% static 'img/logo/favicon.ico' %}">
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-image: url('{% static 'bg23.jpg' %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            color: #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            border: 2px solid #ff2600;
+            border-radius: 10px;
+            padding: 30px;
+            background: transparent;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 15px 30px;
+            background-color: white;
+            color: #ff2600;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 15px;
+            font-size: 16px;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+            width: 200px; /* Set a fixed width for the buttons */
+        }
+
+        .button:hover {
+            background-color: #7e21103a;
+            color: whitesmoke;
+        }
+
+        h2 {
+            color: #f0edeb;
+            margin-bottom: 20px;
+            font-size: 40px;
+        }
+        .button {
+            background-color:rgba(42, 12, 4, 0.321);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out; /* Added transition effect */
+        }
+        .button:hover {
+            background-color: #722013; /* Change background color on hover */
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 80px; 
+            width: 100%;
+            max-width: 130px;
+        }
+    </style>
+</head>
+<body>
+    <img class="logo" src='{% static "img/logo/logo.png " %}' alt="" />
+    <div class="button-container">
+        <h2>Admin Dashboard</h2>
+        <div class="button-group">
+            <a href="index" class="button"><i class='bx bxs-planet'></i>  Go to Main Website</a>
+            <a href="show" class="button"><i class='bx bx-edit-alt' ></i>  Edit User Info</a>
+            <a href="eventupload" class="button"><i class='bx bx-calendar-star'></i>Create Events</a>
+        </div>
+        <div class="button-group">
+            <a href="show2" class="button"><i class='bx bxs-edit-alt' ></i>  Edit Admin Info</a>
+            <a href="show3" class="button"><i class='bx bxs-user-check'></i>  Admin Verification</a>
+            <a href="upld" class="button"><i class='bx bx-upload'></i>Upload Tracks</a>
+            <a href="/" class="button"><i class='bx bx-log-out'></i> Log Out</a>  
+        </div>
+    </div>
+</body>
+</html>
